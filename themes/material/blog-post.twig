@@ -55,23 +55,21 @@
 		
 	</main>
 
+    <div id="main">
+        <div class="container">
+            {{ content }}
+        </div>
+    </div>
     
-    <section class="blog-container amber lighten-4 ">
-		<h1 class="left-spacing" style="margin-top:0px">Blog</h1>
-		{% for page in pages|sort_by("time")|reverse %}
-        {% if page.id starts with "blog/" and not page.hidden %}
-		<article class="amber lighten-2 left-spacing post">
-			<h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
-			<h6><em>{{ page.date_formatted }}</em></h6>
-			<h6>Tags: </h6>
-			{{ page.id|content }}
-		</article>
-		{% endif %}
-        {% endfor %}
-	</section>
-
-
-  
+    {% for page in pages|sort_by("time")|reverse %}
+    {% if page.id starts with "blog/" and not page.hidden %}
+        <div class="post">
+            <h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
+            <p class="date">{{ page.date_formatted }}</p>
+            <p class="excerpt">{{ page.description }}</p>
+        </div>
+    {% endif %}
+    {% endfor %}
 
     <script src="{{ theme_url }}/js/modernizr-3.3.1-custom.min.js" type="text/javascript"></script>
     <script src="{{ theme_url }}/js/utils.js" type="text/javascript"></script>
