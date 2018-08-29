@@ -92,7 +92,38 @@ a:hover {
 
 }
 
+.smartboard i {
+    color:black;
+    font-size:35px;
+    letter-spacing:15px;
+}
+
+#topcontainer {
+    height:250px;
+}
+
+.smartboard {
+    position:relative;
+    bottom:25px;
+    left:50px;
+    width:250px;
+    height:200px;
+    background-image:url('../../../assets/smartboard.png');
+    background-size:cover;
+    padding:60px 60px 50px 50px;
+    text-align:center;
+}
+
 @media only screen and (max-width : 992px) {
+  #topcontainer{
+      height:auto;
+  }
+  
+  .smartboard {
+      position:static;
+      text-align:center;
+  }
+  
   main  {
     padding-right: 0;
     padding-top:0px;
