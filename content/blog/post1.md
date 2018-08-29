@@ -2,8 +2,9 @@
 Title: Welcome
 Description: This description will go in the meta description tag
 Author: Joe Bloggs
-Date: 2001-04-25
+Date: 2018-8-28 6:31 PM
 Robots: noindex,nofollow
+Tags: pancakes, bacon
 Template: blog-post
 ---
 Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
