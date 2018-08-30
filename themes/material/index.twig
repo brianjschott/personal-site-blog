@@ -29,15 +29,18 @@
     <link rel="stylesheet" href="{{ theme_url }}/css/style.css" type="text/css" />
 </head>
 <body class="amber lighten-3">
-
- 
 	<main>
 	   <section class="rightnavbar grey darken-4 white-text z-depth-5">
-		<ul>
-			<li><a href="#">Home</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Contact</a></li>
-		</ul>
+        <ul>
+        {% for page in pages if not page.hidden %}
+            {% if not (page.id starts with "blog/") and not page.hidden %}
+
+            <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+            
+            {% endif %}
+        {% endfor %}
+        </ul>
+		<h6>Blog powered by <a href="http://www.picocms.org">PicoCMS</a></h6>
 	    </section>
 		<section class="top-container teal darken-2 white-text z-depth-4">
             <div class="left-spacing name-container">
@@ -62,6 +65,7 @@
 		</section>
 		
 		
+    <!-- starts the blog container -->
 
     <section class="blog-container z-depth-1">
         <div class="blog-title z-depth-2 amber darken-2 left-spacing">
@@ -79,12 +83,10 @@
 		{% endif %}
         {% endfor %}
 	</section>
+	<!-- ends the blog container -->
 
 	</main>
-    <footer class="footer amber darken-2">
-        <h6>Blog powered by <a href="http://www.picocms.org">PicoCMS</a></h6>
-        
-    </footer>
+    
   
 
     {#<script src="{{ theme_url }}/js/modernizr-3.3.1-custom.min.js" type="text/javascript"></script>#}

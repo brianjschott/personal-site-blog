@@ -16,64 +16,74 @@
     {% endif %}
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:400,500,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
+
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
     
     <link rel="stylesheet" href="{{ theme_url }}/css/style.css" type="text/css" />
 </head>
-<body>
+<body class="amber lighten-3">
 
-    <div class="rightnavbar">
+ 
+	<main>
+	   <section class="rightnavbar grey darken-4 white-text z-depth-5">
 		<ul>
 			<li><a href="#">Home</a></li>
 			<li><a href="#">About</a></li>
 			<li><a href="#">Contact</a></li>
 		</ul>
-	</div>
-	<main>
-		<section class="row teal darken-2 white-text" id="topcontainer">
-			<div class="col m4 left-spacing">
+	    </section>
+		<section class="top-container teal darken-2 white-text z-depth-4">
+            <div class="left-spacing name-container">
 					<h1>Brian Schott</h1>
 					<h5>Computer Science Educator</h5>
 					<h5>Budding Design Thinker</h5>
 			</div>
-			<div class="col m3">
-				<img src="images/headshot.jpg" style="border-radius:50%;width:200px;">
+			<div class="headshot-container left-spacing">
+				<img class="headshot" src="../assets/headshot.jpg" style="">
 			</div>
-			<div class="col m5">
-				<ul>
-					<li>Twitter</li>
-					<li>LinkedIn</li>
-				</ul>
-				
+			<div class="smartboard-container">
+				<div class="smartboard">
+				    <div style="margin-bottom:5px;margin-right:15px;">Follow me on...</div>
+				    <a href="http://www.twitter.com/brianjschott"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="http://www.github.com/brianjschott"><i class="fab fa-github-alt"></i></a>
+
+
+				</div>
 			</div>
 		</section>
 		
 		
+    <!-- starts the blog container -->
+    <section class="blog-container z-depth-1">
+        <div class="blog-title z-depth-2 amber darken-2 left-spacing">
+            <h1 style="padding:20px 0 20px 0;"><a href="{{ meta.url }}">{{ meta.title }}</a></h1>
+        </div>
+		<article class="amber lighten-2 left-spacing post z-depth-1">
+			
+			<h6><em>{{ meta.date_formatted }}</em></h6>
+			<h6>Tags: {{ meta.tags }}
+			</h6>
+			{{ content }}
+		</article>
+	</section>
+	<!-- ends the blog container -->
+
 	</main>
 
-    <div id="main">
-        <div class="container">
-            {{ content }}
-        </div>
-    </div>
-    
-    {% for page in pages|sort_by("time")|reverse %}
-    {% if page.id starts with "blog/" and not page.hidden %}
-        <div class="post">
-            <h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
-            <p class="date">{{ page.date_formatted }}</p>
-            <p class="excerpt">{{ page.description }}</p>
-        </div>
-    {% endif %}
-    {% endfor %}
+  
 
-    <script src="{{ theme_url }}/js/modernizr-3.3.1-custom.min.js" type="text/javascript"></script>
-    <script src="{{ theme_url }}/js/utils.js" type="text/javascript"></script>
-    <script src="{{ theme_url }}/js/pico.js" type="text/javascript"></script>
+    {#<script src="{{ theme_url }}/js/modernizr-3.3.1-custom.min.js" type="text/javascript"></script>#}
+    {#<script src="{{ theme_url }}/js/utils.js" type="text/javascript"></script>#}
+    {#<script src="{{ theme_url }}/js/pico.js" type="text/javascript"></script>#}
 
 </body>
 </html>

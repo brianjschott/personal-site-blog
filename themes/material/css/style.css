@@ -14,7 +14,7 @@ h6 {
 }
 
 p {
-    font-size: 20px;
+    font-size: 30px;
 }
 
 main,
@@ -23,7 +23,7 @@ main,
 }
 
 footer {
-    height:100px;
+    padding:5px;
 }
 
 .name-container h1 {
@@ -43,6 +43,8 @@ footer {
 article {
     padding: 15px;
 }
+
+
 
 .row {
     margin-bottom: 0 !important;
