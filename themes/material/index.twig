@@ -75,9 +75,9 @@
         {% if page.id starts with "blog/" and not page.hidden %}
 		<article class="amber lighten-2 left-spacing post z-depth-1">
 			<h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
-			<h6><em>{{ page.date_formatted }}</em></h6>
-			<h6>Tags: {{ page.meta.tags }}
-			</h6>
+			<h5><em>{{ page.date_formatted }}</em></h5>
+			<h5>Tags: {{ page.meta.tags }}
+			</h5>
 			{{ page.id|content }}
 		</article>
 		{% endif %}
