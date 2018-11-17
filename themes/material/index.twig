@@ -30,36 +30,9 @@
 </head>
 <body class="amber lighten-3">
 	<main>
-	   <section class="rightnavbar grey darken-4 white-text z-depth-5">
-        <ul>
-        {% for page in pages if not page.hidden %}
-            {% if not (page.id starts with "blog/") and not page.hidden %}
-
-            <li><a href="{{ page.url }}">{{ page.title }}</a></li>
-            
-            {% endif %}
-        {% endfor %}
-        </ul>
-		<h6>Blog powered by <a href="http://www.picocms.org">PicoCMS</a></h6>
-	    </section>
-		<section class="top-container teal darken-2 white-text z-depth-4">
-            <div class="left-spacing name-container">
-					<h1>Brian Schott</h1>
-					<h5>Computer Science Teacher</h5>
-			</div>
-
-			<div class="smartboard-container">
-				<div class="smartboard">
-				    <div style="margin-bottom:5px;margin-right:15px;">Follow me on...</div>
-				    <a href="http://www.twitter.com/brianjschott"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="http://www.github.com/brianjschott"><i class="fab fa-github-alt"></i></a>
-
-
-				</div>
-			</div>
-		</section>
+	    {{ include('rightbar.html') }}
+		
+		{{ include('leftbar.html') }}
 		
 		
     <!-- starts the blog container -->
@@ -68,18 +41,30 @@
         <div class="blog-title z-depth-2 amber darken-2 left-spacing">
             <h1>Blog</h1>
         </div>
+        {% if is_front_page %}
+    		{% for page in paged_pages|sort_by("time")|reverse %}
+                {% if page.id starts with "blog/" and not page.hidden %}
+        		<article class="amber {{ cycle(['lighten-1','lighten-2'], loop.index0) }} left-spacing post z-depth-1">
+        			<h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
+        			<h5><em>{{ page.date_formatted }}</em></h5>
+        			<h5>Tags: {{ page.meta.tags }}
+        			</h5>
+        			{{ page.id|content }}
+        		</article>
+        		{% endif %}
+            {% endfor %}
         
-		{% for page in pages|sort_by("time")|reverse %}
-            {% if page.id starts with "blog/" and not page.hidden %}
-    		<article class="amber {{ cycle(['lighten-1','lighten-2'], loop.index0) }} left-spacing post z-depth-1">
-    			<h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
-    			<h5><em>{{ page.date_formatted }}</em></h5>
-    			<h5>Tags: {{ page.meta.tags }}
-    			</h5>
-    			{{ page.id|content }}
-    		</article>
-    		{% endif %}
-        {% endfor %}
+            {{ pagination_links }}
+        {% else %}
+            <article class="amber lighten-2 left-spacing post z-depth-1">
+        			<h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
+        			<h5><em>{{ page.date_formatted }}</em></h5>
+        			<h5>Tags: {{ page.meta.tags }}
+        			</h5>
+        			{{ page.id|content }}
+        	</article>
+        	{{ pagination_links }}
+        {% endif %}
 	</section>
 	<!-- ends the blog container -->
 

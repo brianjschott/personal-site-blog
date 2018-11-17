@@ -39,29 +39,11 @@
 			<li><a href="#">Contact</a></li>
 		</ul>
 	    </section>
-		<section class="top-container teal darken-2 white-text z-depth-4">
-            <div class="left-spacing name-container">
-					<h1>Brian Schott</h1>
-					<h5>Computer Science Educator</h5>
-					<h5>Budding Design Thinker</h5>
-			</div>
-			<div class="headshot-container left-spacing">
-				<img class="headshot" src="../assets/headshot.jpg" style="">
-			</div>
-			<div class="smartboard-container">
-				<div class="smartboard">
-				    <div style="margin-bottom:5px;margin-right:15px;">Follow me on...</div>
-				    <a href="http://www.twitter.com/brianjschott"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="http://www.github.com/brianjschott"><i class="fab fa-github-alt"></i></a>
-
-
-				</div>
-			</div>
-		</section>
+	
+		{{ include('rightbar.html') }}
 		
-		
+		{{ include('leftbar.html') }}
+
     <!-- starts the blog container -->
     <section class="blog-container z-depth-1">
         <div class="blog-title z-depth-2 amber darken-2 left-spacing">
@@ -70,10 +52,18 @@
 		<article class="amber lighten-2 left-spacing post z-depth-1">
 			
 			<h6><em>{{ meta.date_formatted }}</em></h6>
-			<h6>Tags: {{ meta.tags }}
+			<h6>Tags: {% for tag in meta.tags %} {{tag}} {% endfor %}
 			</h6>
 			{{ content }}
 		</article>
+		<h5 style="margin: 5px">
+			{% if prev_page.id starts with "blog/" and not prev_page.hidden %}
+				<a href="{{ prev_page.url }}"><- {{prev_page.title}} </a>
+			{% endif %}
+			{% if next_page.id starts with "blog/" and not next_page.hidden %}
+			<a style="float:right;" href="{{ next_page.url }}">{{next_page.title}} -> </a>
+			{% endif %}
+		</h5>
 	</section>
 	<!-- ends the blog container -->
 
