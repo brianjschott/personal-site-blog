@@ -1,33 +1,5 @@
-<!DOCTYPE html>
-<html class="no-js">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+{{ include('header.html') }}
 
-    <title>{% if meta.title %}{{ meta.title }} | {% endif %}{{ site_title }}</title>
-    {% if meta.description %}
-        <meta name="description" content="{{ meta.description|striptags }}" />
-    {% endif %}{% if meta.robots %}
-        <meta name="robots" content="{{ meta.robots }}" />
-    {% endif %}
-
-    {% if current_page %}
-        <link rel="canonical" href="{{ current_page.url }}" />
-    {% endif %}
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Barlow+Condensed:400,500,600,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
-
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-
-
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-    
-    <link rel="stylesheet" href="{{ theme_url }}/css/style.css" type="text/css" />
-</head>
 <body class="amber lighten-3">
 
  
@@ -49,13 +21,14 @@
         <div class="blog-title z-depth-2 amber darken-2 left-spacing">
             <h1 style="padding:20px 0 20px 0;"><a href="{{ meta.url }}">{{ meta.title }}</a></h1>
         </div>
-		<article class="amber lighten-2 left-spacing post z-depth-1">
+		<article class="amber lighten-2 left-spacing post z-depth-1 single-post">
 			
 			<h6><em>{{ meta.date_formatted }}</em></h6>
 			<h6>Tags: {% for tag in meta.tags %} {{tag}} {% endfor %}
 			</h6>
-			{{ content }}
+			<div style="content">{{ content }}</div>
 		</article>
+		{% if current_page.id starts with "blog/" %}
 		<h5 style="margin: 5px">
 			{% if prev_page.id starts with "blog/" and not prev_page.hidden %}
 				<a href="{{ prev_page.url }}"><- {{prev_page.title}} </a>
@@ -64,6 +37,7 @@
 			<a style="float:right;" href="{{ next_page.url }}">{{next_page.title}} -> </a>
 			{% endif %}
 		</h5>
+		{% endif %}
 	</section>
 	<!-- ends the blog container -->
 

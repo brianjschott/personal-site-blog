@@ -49,6 +49,9 @@ article {
     height: inherit;
 }
 
+.single-post {
+    min-height: 50vh;
+}
 
 
 .row {
@@ -68,6 +71,10 @@ article {
 .rightnavbar {
     padding: 50px;
     font-size: 35px;
+}
+
+.content {
+    margin-left: 20px;
 }
 
 a {
@@ -147,7 +154,7 @@ a:hover {
 
 main {
     display: grid;
-    grid-template-columns: 450px auto 200px;
+    grid-template-columns: 450px auto 180px;
     min-height: 100vh;
     
 }
