@@ -1,0 +1,15 @@
+<section class="rightnavbar grey darken-4 white-text z-depth-5">
+    <ul>
+    {% for page in pages if not page.hidden %}
+        {% if not (page.id starts with "blog/") and not page.hidden %}
+
+        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+        
+        {% endif %}
+    {% endfor %}
+    
+    </ul>
+	
+	<h6>Blog powered by <a href="http://www.picocms.org">PicoCMS</a></h6>
+</section>
+	    

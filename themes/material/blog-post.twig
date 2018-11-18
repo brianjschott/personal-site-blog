@@ -1,0 +1,53 @@
+{{ include('header.html') }}
+
+<body class="amber lighten-3">
+
+ 
+	<main>
+	   <section class="rightnavbar grey darken-4 white-text z-depth-5">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	    </section>
+	
+		{{ include('rightbar.html') }}
+		
+		{{ include('leftbar.html') }}
+
+    <!-- starts the blog container -->
+    <section class="blog-container z-depth-1">
+        <div class="blog-title z-depth-2 amber darken-2 left-spacing">
+            <h1 style="padding:20px 0 20px 0;"><a href="{{ meta.url }}">{{ meta.title }}</a></h1>
+        </div>
+		<article class="amber lighten-2 left-spacing post z-depth-1 single-post">
+			
+			<h6><em>{{ meta.date_formatted }}</em></h6>
+			<h6>Tags: {% for tag in meta.tags %} {{tag}} {% endfor %}
+			</h6>
+			<div style="content">{{ content }}</div>
+		</article>
+		{% if current_page.id starts with "blog/" %}
+		<h5 style="margin: 5px">
+			{% if prev_page.id starts with "blog/" and not prev_page.hidden %}
+				<a href="{{ prev_page.url }}"><- {{prev_page.title}} </a>
+			{% endif %}
+			{% if next_page.id starts with "blog/" and not next_page.hidden %}
+			<a style="float:right;" href="{{ next_page.url }}">{{next_page.title}} -> </a>
+			{% endif %}
+		</h5>
+		{% endif %}
+	</section>
+	<!-- ends the blog container -->
+
+	</main>
+
+  
+
+    {#<script src="{{ theme_url }}/js/modernizr-3.3.1-custom.min.js" type="text/javascript"></script>#}
+    {#<script src="{{ theme_url }}/js/utils.js" type="text/javascript"></script>#}
+    {#<script src="{{ theme_url }}/js/pico.js" type="text/javascript"></script>#}
+
+</body>
+</html>

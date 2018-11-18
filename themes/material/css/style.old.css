@@ -1,0 +1,175 @@
+body {
+     font-family: 'Barlow Condensed', sans-serif;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    margin:0;
+    padding:0;
+}
+
+p {
+    font-size:20px;
+}
+
+main, .rightnavbar {
+    transition:width .25s ease-out;
+}
+
+.blog-title {
+    
+    padding: 5px 0 10px 0;
+}
+
+.blog-title h1 {
+    
+    text-align:center;
+    width: 10%;
+    font-weight:500;
+    text-shadow:4px 4px 2px rgba(150, 150, 101, 0.29);
+}
+
+main {
+  padding-right: 220px;
+}
+
+article {
+    padding: 15px;
+}
+
+.row {
+    margin-bottom:0 !important;
+}
+
+#topcontainer {
+    padding: 20px 0 20px 0;
+}
+
+.left-spacing {
+    padding-left:50px !important;
+}
+
+.blog-container {
+}
+
+
+.rightnavbar {
+    position:fixed;
+    right:0px;
+    height:100%;
+    width:220px;
+    padding:50px;
+    font-size:35px;
+}
+
+a {
+    text-decoration:underline;
+}
+
+a:link, a:visited {
+    color:black;
+}
+
+a:hover {
+    color:#1de9b6;
+}
+
+.rightnavbar a {
+    text-decoration:none;
+}
+
+.rightnavbar a:link{
+    color:white;
+
+}
+
+.rightnavbar a:visited {
+    color:white;
+}
+
+.rightnavbar a:hover {
+    color:#1de9b6;
+}
+
+.rightnavbar a:active {
+    color:#1de9b6;
+
+}
+
+
+
+.page-headline {
+    
+}
+
+.headshot {
+    border: solid 5px white;
+    border-radius:100%;
+    width:180px;
+    display:inline-block;
+    margin-top:20px;
+    text-align:center;
+    
+}
+
+.smartboard {
+    position:relative;
+    bottom:25px;
+    left:50px;
+    width:250px;
+    height:200px;
+    background-image:url('../../../assets/smartboard.png');
+    background-size:cover;
+    padding:50px 50px 50px 50px;
+    text-align:center;
+    text-shadow:-4px 2px #DDDDDD;
+
+}
+
+.smartboard i {
+    color:black;
+    font-size:35px;
+    letter-spacing:20px;
+    
+}
+
+.topcontainer {
+    display:grid;
+}
+
+@media only screen and (max-width : 992px) {
+
+  .smartboard {
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:20px;
+    background-image:none;
+    text-shadow:none;
+    display:block;
+    padding:0;
+    height:auto;
+  }
+  
+  .headshot {
+      display:block;
+      margin-left:auto;
+      margin-right:auto;
+  }
+  
+  main  {
+    padding-right: 0;
+    padding-top:0px;
+  }
+  .rightnavbar {
+      position:static;
+      width:100%;
+      top:0px;
+      height:50px;
+      padding-top:0px;
+      padding-bottom:5px;
+  }
+  
+  .rightnavbar li {
+        display:inline-block;  }
+}
