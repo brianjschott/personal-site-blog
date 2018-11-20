@@ -11,16 +11,15 @@
 
     <section class="blog-container z-depth-1">
         <div class="blog-title z-depth-2 amber darken-2 left-spacing">
-            <h1>Blog</h1>
+            <h2>Blog</h2>
         </div>
         {% if is_front_page %}
     		{% for page in paged_pages|sort_by("time")|reverse %}
                 {% if page.id starts with "blog/" and not page.hidden %}
-        		<article class="amber {{ cycle(['lighten-1','lighten-2'], loop.index0) }} left-spacing post z-depth-1">
-        			<h3><a href="{{ page.url }}">{{ page.title }}</a></h3>
-        			<h5><em>{{ page.date_formatted }}</em></h5>
-        			<h5>Tags: {{ page.meta.tags }}
-        			</h5>
+        		<article class="amber {{ cycle(['lighten-3','lighten-2'], loop.index0) }} left-spacing post z-depth-1">
+        			<h3><a href="{{ page.url }}">{{ page.meta.title }}</a></h3>
+        			<h6><em>Date:</em>{{ page.meta.date_formatted }}</h6>
+        			<h6><em>Tags:</em> {{ page.meta.tags }}</h6>
         			<div class="content">{{ page.id|content }}</div>
         		</article>
         		{% endif %}

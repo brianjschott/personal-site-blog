@@ -1,4 +1,4 @@
-<section class="rightnavbar grey darken-4 white-text z-depth-5">
+<section class="rightnavbar grey darken-4 white-text z-depth-0">
     <ul>
     {% for page in pages if not page.hidden %}
         {% if not (page.id starts with "blog/") and not page.hidden %}
@@ -10,6 +10,6 @@
     
     </ul>
 	
-	<h6>Blog powered by <a href="http://www.picocms.org">PicoCMS</a></h6>
+	<h6><em>Blog powered by <a href="http://www.picocms.org">PicoCMS</a></em></h6>
 </section>
 	    

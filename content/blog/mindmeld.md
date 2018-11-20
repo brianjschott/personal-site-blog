@@ -1,10 +1,10 @@
 ---
-title: Mind Meld
-Description: A mind meld app
+title: Having Fun with APIs -- Melding Minds with Datamuse
+Description: Where I use the Datamuse API to meld minds with a computer
 Author: Brian Schott
 Date: 11-17-2018 6:31 PM
 Robots: 
-Tags: ruby, sinatra, app
+Tags: ruby, sinatra, app, api, fun
 Template: blog-post
 ---
 Sometimes it's tough to make time for coding projects, but it really is beneficial to my teaching. You have to be making things and practicing your craft in order to get better at it! I wanted to revisit a project I had done during my Upperline teacher bootcamp, so I deployed one of my Sinatra apps, [Mind Meld](https://mind-meld-sinatra.herokuapp.com/), to Heroku.
